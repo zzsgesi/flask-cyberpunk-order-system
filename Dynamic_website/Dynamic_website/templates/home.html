@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>网站首页</title>
+    <style>
+        /* 全局样式：页面居中+背景美化 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 核心：把图片设为全屏背景 */
+        body {
+            background: url("static/home-banner.jpg") no-repeat center center fixed;
+            background-size: cover; /* 图片铺满整个屏幕 */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* 加一层半透明遮罩，让文字更清晰 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* 黑色半透明，可调整透明度 */
+            z-index: 0;
+        }
+
+        /* 首页卡片容器（核心修改：大幅降低透明度） */
+        .home-container {
+            position: relative;
+            z-index: 1;
+            /* 关键修改：将背景透明度从0.9改为0.2，实现高透效果 */
+            background: rgba(255, 255, 255, 0.2);
+            /* 毛玻璃效果，让透明更有质感 */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); /* 兼容webkit内核浏览器 */
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            /* 加个细边框，让卡片轮廓更清晰 */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* 标题样式（赛博朋克风格，加深文字对比度） */
+        .home-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff; /* 改为白色，在透明背景上更醒目 */
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.8); /* 文字阴影，提升可读性 */
+        }
+
+        /* 副标题/描述 */
+        .home-desc {
+            font-size: 16px;
+            color: #ffffff; /* 改为白色 */
+            margin-bottom: 40px;
+            line-height: 1.6;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+        }
+
+        /* 购买义体按钮：核心样式+动画 */
+        .login-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #ffd000 0%, #ff5500 100%); /* 赛博朋克黄橙渐变 */
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none; /* 去掉a标签默认下划线 */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255, 85, 0, 0.4);
+            transition: all 0.3s ease; /* 动画过渡：所有属性0.3秒平滑变化 */
+            cursor: pointer;
+        }
+
+        /* 按钮hover动画：放大+阴影加深 */
+        .login-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 85, 0, 0.6);
+        }
+
+        /* 按钮点击动画：按下缩小 */
+        .login-btn:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 2px 10px rgba(255, 85, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+<div class="home-container">
+    <h1 class="home-title">生命苦短,义体永生,加入光荣的进化吧</h1>
+    <p class="home-desc">点击下方按钮，开启你的赛博朋克之旅</p>
+    <a href="/login" class="login-btn">购买义体</a>
+</div>
+</body>
+</html>

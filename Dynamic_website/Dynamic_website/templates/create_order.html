@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>创建义体订单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2d1b69 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 28px;
+            color: #2d1b69;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        /* 表单行样式 */
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        /* 标签样式 */
+        .form-label {
+            width: 140px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* 下拉框美化 */
+        .select-box {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            background: #fff;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .select-box:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.2);
+        }
+
+        /* 数量输入框 */
+        .num-input {
+            width: 120px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .num-input:focus {
+            border-color: #00e5ff;
+            box-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
+        }
+
+        /* 按钮组 */
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 45px;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 创建订单按钮（美化） */
+        .create-btn {
+            padding: 12px 36px;
+            background: linear-gradient(135deg, #00e5ff 0%, #0077ff 100%);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.35);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.55);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="page-title">创建义体进化订单</h1>
+
+    <form action="/order/create" method="post">
+        <!-- 1. 操作系统 -->
+        <div class="form-row">
+            <label class="form-label">操作系统</label>
+            <select class="select-box" name="cyber_os">
+                <option value="斯安威斯坦">斯安威斯坦</option>
+            </select>
+            <input type="number" id="num_os" name="num_os" class="num-input" placeholder="输入数量" min="0" value="1">
+        </div>
+
+        <!-- 2. 面部 -->
+        <div class="form-row">
+            <label class="form-label">面部</label>
+            <select class="select-box" name="cyber_face">
+                <option value="石化鸡蛇">石化鸡蛇</option>
+                <option value="行为特征同步脸板">行为特征同步脸板</option>
+            </select>
+            <input type="number" id="num_face" name="num_face" class="num-input" placeholder="输入数量" min="0"
+                   value="1">
+        </div>
+
+        <!-- 3. 手掌 -->
+        <div class="form-row">
+            <label class="form-label">手掌</label>
+            <select class="select-box" name="cyber_hand">
+                <option value="握柄固定套">握柄固定套</option>
+                <option value="省力减震">省力减震</option>
+            </select>
+            <input type="number" id="num_hand" name="num_hand" class="num-input" placeholder="输入数量" min="0"
+                   value="1">
+        </div>
+
+        <!-- 4. 循环系统 -->
+        <div class="form-row">
+            <label class="form-label">循环系统</label>
+            <select class="select-box" name="cyber_circulatory">
+                <option value="微型转子">微型转子</option>
+                <option value="肾上腺素增强件">肾上腺素增强件</option>
+                <option value="黑曼巴">黑曼巴</option>
+            </select>
+            <input type="number" id="num_circulatory" name="num_circulatory" class="num-input" placeholder="输入数量"
+                   min="0" value="1">
+        </div>
+
+        <!-- 5. 腿部 -->
+        <div class="form-row">
+            <label class="form-label">腿部</label>
+            <select class="select-box" name="cyber_leg">
+                <option value="强化肌腱">强化肌腱</option>
+            </select>
+            <input type="number" id="num_leg" name="num_leg" class="num-input" placeholder="输入数量" min="0" value="1">
+        </div>
+
+        <!-- 6. 表皮系统 -->
+        <div class="form-row">
+            <label class="form-label">表皮系统</label>
+            <select class="select-box" name="cyber_dermis">
+                <option value="纳米镀层">纳米镀层</option>
+                <option value="外周逆反">外周逆反</option>
+                <option value="克伦奇科夫回护">克伦奇科夫回护</option>
+            </select>
+            <input type="number" id="num_dermis" name="num_dermis" class="num-input" placeholder="输入数量" min="0"
+                   value="1">
+        </div>
+
+        <!-- 7. 神经系统 -->
+        <div class="form-row">
+            <label class="form-label">神经系统</label>
+            <select class="select-box" name="cyber_nervous">
+                <option value="锥刺子">锥刺子</option>
+                <option value="肾上腺是整流">肾上腺是整流</option>
+                <option value="纳米纤维">纳米纤维</option>
+            </select>
+            <input type="number" id="num_nervous" name="num_nervous" class="num-input" placeholder="输入数量" min="0"
+                   value="1">
+        </div>
+
+        <!-- 8. 骨骼 -->
+        <div class="form-row">
+            <label class="form-label">骨骼</label>
+            <select class="select-box" name="cyber_bone">
+                <option value="致命骨髓">致命骨髓</option>
+                <option value="钛金骨骼">钛金骨骼</option>
+                <option value="动能骨架">动能骨架</option>
+            </select>
+            <input type="number" id="num_bone" name="num_bone" class="num-input" placeholder="输入数量" min="0"
+                   value="1">
+        </div>
+
+        <!-- 9. 胳臂 -->
+        <div class="form-row">
+            <label class="form-label">胳臂</label>
+            <select class="select-box" name="cyber_arm">
+                <option value="放电射弹发射系统">放电射弹发射系统</option>
+            </select>
+            <input type="number" id="num_arm" name="num_arm" class="num-input" placeholder="输入数量" min="0" value="1">
+        </div>
+
+        <!-- 10. 额皮质 -->
+        <div class="form-row">
+            <label class="form-label">额皮质</label>
+            <select class="select-box" name="cyber_cortex">
+                <option value="机电核心">机电核心</option>
+                <option value="牛顿模块">牛顿模块</option>
+                <option value="自我ICE">自我ICE</option>
+            </select>
+            <input type="number" id="num_cortex" name="num_cortex" class="num-input" placeholder="输入数量" min="0"
+                   value="1">
+        </div>
+
+        <!-- 按钮 -->
+        <div class="btn-group">
+            <a href="/order/list" class="back-btn">← 返回订单列表</a>
+            <button type="submit" class="create-btn">创建订单</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
