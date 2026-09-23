@@ -39,3 +39,9 @@
 - 创建订单后，订单 ID 被推入 Redis 队列
 - 后台 Worker 异步消费订单，更新订单状态
 - 支持订单列表查看与删除
+![运行结果](images/result1.png)
+![运行结果](images/result2.png)
+![运行结果](images/result3.png)
+![运行结果](images/result4.png)
+![运行结果](images/result5.png)
+![运行结果](images/result6.png)
